@@ -1,0 +1,7 @@
+C:\Users\maxin\Desktop\gmaxn - gihub\PRG_LAB_II\E6\E6\bin\Debug\E6.exe.config
+C:\Users\maxin\Desktop\gmaxn\PRG_LAB_II\E6\E6\bin\Debug\E6.exe.config
+C:\Users\maxin\Desktop\gmaxn\PRG_LAB_II\E6\E6\bin\Debug\E6.exe
+C:\Users\maxin\Desktop\gmaxn\PRG_LAB_II\E6\E6\bin\Debug\E6.pdb
+C:\Users\maxin\Desktop\gmaxn\PRG_LAB_II\E6\E6\obj\Debug\E6.exe
+C:\Users\maxin\Desktop\gmaxn\PRG_LAB_II\E6\E6\obj\Debug\E6.pdb
+C:\Users\maxin\Desktop\gmaxn\PRG_LAB_II\E6\E6\obj\Debug\E6.csprojResolveAssemblyReference.cache
