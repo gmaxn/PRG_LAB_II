@@ -1,1 +1,6 @@
 C:\Users\maxin\Desktop\gmaxn - gihub\PRG_LAB_II\E8\E8\bin\Debug\E8.exe.config
+C:\Users\maxin\Desktop\gmaxn\PRG_LAB_II\E8\E8\bin\Debug\E8.exe.config
+C:\Users\maxin\Desktop\gmaxn\PRG_LAB_II\E8\E8\bin\Debug\E8.exe
+C:\Users\maxin\Desktop\gmaxn\PRG_LAB_II\E8\E8\bin\Debug\E8.pdb
+C:\Users\maxin\Desktop\gmaxn\PRG_LAB_II\E8\E8\obj\Debug\E8.exe
+C:\Users\maxin\Desktop\gmaxn\PRG_LAB_II\E8\E8\obj\Debug\E8.pdb

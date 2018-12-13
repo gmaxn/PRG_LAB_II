@@ -10,7 +10,12 @@ namespace E8
     {
         static void Main(string[] args)
         {
+            string nombre = "Alan";
             Empleado e = new Empleado();
+
+            nombre = e.ObtenerNombre();
+
+            Console.WriteLine(nombre);
         }
 
 
@@ -43,6 +48,8 @@ namespace E8
             return true;
         }
     }
+
+
     public class Empleado
     {
         #region ** CLASS CORE **
@@ -95,30 +102,21 @@ namespace E8
         public string ObtenerNombre()
         {
             Console.Write("nombre: ");
-            string nombre = Console.ReadLine();
+            string nombre = Console.ReadLine().ToLower();
 
-            if (nombre.Length < 10 && nombre != null)
-            {
-                foreach (char c in nombre)
-                {
-                    if ((c > 'A' || c < 'Z') || (c > 'a' || c < 'z'))
-                    {
-                        nombre = null;
-                    }
-                }
+            if (nombre.Length > 15 && nombre != null)            
+                nombre = null;           
 
-            }
-            else
+            foreach (char c in nombre)
             {
-                nombre = null;
+                if ((c < 'a' || c > 'z'))             
+                    nombre = null;                
             }
 
-            return nombre;
-            
-            
-            if(Console.ReadLine().ToStri < 10)
+            if (nombre != null)
+                nombre = char.ToUpper(nombre[0]).ToString() + nombre.Remove(0, 1);
 
-
+            return nombre;          
         }
 
 
