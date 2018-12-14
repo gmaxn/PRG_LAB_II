@@ -10,63 +10,59 @@ namespace E11
     {
         static void Main(string[] args)
         {
+             
+            int i = 0;
             int aux;
             int min = 0;
             int max = 0;
-            float promedio;
+            int promedio = 0;
 
-            while(SeguirCargando())
+            Console.WriteLine("ingrese 10 numeros: ");
+            while(i<10)
             {
-                if(int.TryParse(Console.ReadLine(), out aux))
+                if (ObtenerEntero("", 2, "intente nuevamente", out aux))
                 {
-                    if(Validacion.Validar(aux, -100, 100))
+                    if(i == 0)
+                    {
+                        min = aux;
+                        max = aux;
+                    }
+                        
+                    if (Validacion.Validar(aux, -100, 100))
                     {
                         if (aux > max)
                             max = aux;
 
                         if (aux < min)
                             min = aux;
+
+                        promedio += aux;
                     }
-                }               
-            }
+                    else
+                    {
+                        break;
+                    }
+                }
 
-        }
-        public static string MostrarMaxMin(int[] numeros)
-        {
-            int max = numeros[0], min = numeros[0];
-            StringBuilder sb = new StringBuilder();
-            foreach (int i in numeros)
+                i++;
+            }
+            if(i == 10)
             {
-                if (i > max)
-                    max = i;
-
-                if (i < min)
-                    min = i;
+                Console.WriteLine("El valor Maximo del conjunto es: " + max);
+                Console.WriteLine("El valor Minimo del conjunto es: " + min);
+                Console.WriteLine("El valor el promedio del conjunto es: " + (float)promedio/10);
             }
-            sb.AppendLine("El valor Maximo del conjunto es: " + max);
-            sb.AppendLine("El valor Minimo del conjunto es: " + min);
-            return sb.ToString();
+            
+
         }
-        public static bool SeguirCargando()
+
+        public static bool ObtenerEntero(string request, int intentos, string msgError, out int numero)
         {
-            ConsoleKeyInfo cki;
-            Console.WriteLine("presione una tecla para cargar o Escape (Esc) para salir");
-            cki = Console.ReadKey();
-            Console.Clear();
-            Console.WriteLine("presione una tecla para cargar o Escape (Esc) para salir");
-            if (cki.Key == ConsoleKey.Escape)
-                return false;
-            return true;
-        }
-        public static bool ObtenerNumeroNatural(string request, int intentos, string msgError, out int numero)
-        {
-            Console.WriteLine(request);
-            while (Validacion.Validar())
+            Console.Write(request);
+            while (!int.TryParse(Console.ReadLine(), out numero))
             {
                 if (intentos == 0)
                     return false;
-
-
 
 
                 Console.WriteLine(msgError + "({0})", intentos);
@@ -74,5 +70,6 @@ namespace E11
             }
             return true;
         }
+
     }
 }
