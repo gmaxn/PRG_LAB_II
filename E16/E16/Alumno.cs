@@ -45,9 +45,7 @@ namespace E16
         public void CalcularFinal()
         {
             if (this._nota1 >= 4 && this._nota2 >= 4)
-            {
-                this._notaFinal = new Random().Next(1, 10);
-            }
+                this._notaFinal = new Random().Next(1, 10);       
         }
     }
 }
