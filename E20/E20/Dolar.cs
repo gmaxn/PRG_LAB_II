@@ -83,7 +83,7 @@ namespace Billetes
         public static Dolar operator -(Dolar d, Peso p)
         {
             double aux = d.GetCantidad * Dolar.GetCotizacion - p.GetCantidad * Peso.GetCotizacion;
-            return new Dolar((float)(aux / Dolar.GetCotizacion));            
+            return new Dolar((float)(aux / Dolar.GetCotizacion));   
             //
         }
         public static bool operator ==(Dolar d, Peso p)

@@ -49,7 +49,7 @@ namespace Billetes
         public static Peso operator -(Peso p, Dolar d)
         {
             double aux = p.GetCantidad * Peso.GetCotizacion + d.GetCantidad * Dolar.GetCotizacion;
-            return new Peso((float)(aux / Peso.GetCotizacion));            
+            return new Peso((float)(aux / Peso.GetCotizacion));
             //
         }
         public static bool operator ==(Peso p, Dolar d)
@@ -66,13 +66,13 @@ namespace Billetes
         public static Peso operator +(Peso p, Euro e)
         {
             double aux = p.GetCantidad * Peso.GetCotizacion + e.GetCantidad * Euro.GetCotizacion;
-            return new Peso((float)(aux / Peso.GetCotizacion));            
+            return new Peso((float)(aux / Peso.GetCotizacion));
             //
         }
         public static Peso operator -(Peso p, Euro e)
         {
             double aux = p.GetCantidad * Peso.GetCotizacion - e.GetCantidad * Euro.GetCotizacion;
-            return new Peso((float)(aux / Peso.GetCotizacion));            
+            return new Peso((float)(aux / Peso.GetCotizacion));
             //
         }
         public static bool operator ==(Peso p, Euro e)

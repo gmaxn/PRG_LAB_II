@@ -48,7 +48,7 @@ namespace Billetes
         public static Euro operator -(Euro e, Dolar d)
         {
             double aux = e.GetCantidad * Euro.GetCotizacion + d.GetCantidad * Dolar.GetCotizacion;
-            return new Euro((float)(aux / Euro.GetCotizacion));            
+            return new Euro((float)(aux / Euro.GetCotizacion));
             //
         }
         public static bool operator ==(Euro e, Dolar d)
@@ -77,6 +77,7 @@ namespace Billetes
         {
             double aux = e.GetCantidad * Euro.GetCotizacion + p.GetCantidad * Peso.GetCotizacion;
             return new Euro((float)(aux / Euro.GetCotizacion));
+            //
         }
         public static Euro operator -(Euro e, Peso p)
         {
