@@ -42,13 +42,23 @@ namespace Billetes
         // Sobrecarga de Operadores
         public static Euro operator +(Euro e, Dolar d)
         {
-            double aux = e.GetCantidad * Euro.GetCotizacion + d.GetCantidad * Dolar.GetCotizacion;
-            return new Euro((float)(aux / Euro.GetCotizacion));
+            double cotizEuro = double.Parse(Euro.GetCotizacion.ToString());
+            double cotizDolar = double.Parse(Dolar.GetCotizacion.ToString());
+
+            double aux = (((e.GetCantidad * cotizEuro) + (d.GetCantidad * cotizDolar))/cotizEuro);
+            return new Euro(aux);
+            //return new Euro((float)(aux / Euro.GetCotizacion));
         }
         public static Euro operator -(Euro e, Dolar d)
         {
-            double aux = e.GetCantidad * Euro.GetCotizacion + d.GetCantidad * Dolar.GetCotizacion;
-            return new Euro((float)(aux / Euro.GetCotizacion));
+            double cotizEuro = double.Parse(Euro.GetCotizacion.ToString());
+            double cotizDolar = double.Parse(Dolar.GetCotizacion.ToString());
+
+            double aux = (((e.GetCantidad * cotizEuro) - (d.GetCantidad * cotizDolar)) / cotizEuro);
+            return new Euro(aux);
+
+            //double aux = e.GetCantidad * Euro.GetCotizacion + d.GetCantidad * Dolar.GetCotizacion;
+            //return new Euro((float)(aux / Euro.GetCotizacion));
             //
         }
         public static bool operator ==(Euro e, Dolar d)
@@ -75,14 +85,24 @@ namespace Billetes
 
         public static Euro operator +(Euro e, Peso p)
         {
-            double aux = e.GetCantidad * Euro.GetCotizacion + p.GetCantidad * Peso.GetCotizacion;
-            return new Euro((float)(aux / Euro.GetCotizacion));
+            double cotizEuro = double.Parse(Euro.GetCotizacion.ToString());
+            double cotizDolar = double.Parse(Peso.GetCotizacion.ToString());
+
+            double aux = (((e.GetCantidad * cotizEuro) + (p.GetCantidad * cotizDolar)) / cotizEuro);
+            return new Euro(aux);
+            //double aux = e.GetCantidad * Euro.GetCotizacion + p.GetCantidad * Peso.GetCotizacion;
+            //return new Euro((float)(aux / Euro.GetCotizacion));
             //
         }
         public static Euro operator -(Euro e, Peso p)
         {
-            double aux = e.GetCantidad * Euro.GetCotizacion - p.GetCantidad * Peso.GetCotizacion;
-            return new Euro((float)(aux / Euro.GetCotizacion));            
+            double cotizEuro = double.Parse(Euro.GetCotizacion.ToString());
+            double cotizDolar = double.Parse(Peso.GetCotizacion.ToString());
+
+            double aux = (((e.GetCantidad * cotizEuro) - (p.GetCantidad * cotizDolar)) / cotizEuro);
+            return new Euro(aux);
+            //double aux = e.GetCantidad * Euro.GetCotizacion - p.GetCantidad * Peso.GetCotizacion;
+            //return new Euro((float)(aux / Euro.GetCotizacion));            
             //
         }
         public static bool operator ==(Euro e, Peso p)
@@ -112,7 +132,7 @@ namespace Billetes
         }
         public static implicit operator Euro(double d)
         {
-            throw new NotImplementedException();
+            return new Euro(d);
             //
         }
         public static explicit operator Dolar(Euro e)
