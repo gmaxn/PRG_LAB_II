@@ -135,18 +135,22 @@ namespace Billetes
         }
         public static implicit operator Peso(double d)
         {
-            throw new NotImplementedException();
+            return new Peso(d);
             //
         }
         public static explicit operator Dolar(Peso p)
         {
-            throw new NotImplementedException();
-            //
+            double cotizPeso = double.Parse(Peso.GetCotizacion.ToString());
+            double cotizDolar = double.Parse(Dolar.GetCotizacion.ToString());
+            double aux = (p.cantidad * cotizPeso) / cotizDolar;
+            return new Dolar(aux);
         }
         public static explicit operator Euro(Peso p)
         {
-            throw new NotImplementedException();
-            //
+            double cotizPeso = double.Parse(Peso.GetCotizacion.ToString());
+            double cotizEuro = double.Parse(Euro.GetCotizacion.ToString());
+            double aux = (p.cantidad * cotizPeso) / cotizEuro;
+            return new Euro(aux);
         }
     }
 }
