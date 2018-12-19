@@ -36,6 +36,7 @@ namespace E5
 
             if(centrosNumericos != null)
                 Console.WriteLine(Program.MostrarNumeros(centrosNumericos, string.Format("Los centros numericos existentes hasta el nuemero {0} son:", numero)));
+                Console.ReadKey();
         }
 
         public static string MostrarNumeros(List<int> numeros, string msg)

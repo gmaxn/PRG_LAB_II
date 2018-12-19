@@ -26,7 +26,9 @@ namespace E4
             List<int> lista = Program.CalcularPrimerosCuatroNrosPerfectos();
 
             if (lista != null)
-                Console.WriteLine(Program.MostrarNumeros(lista, "Los primeros 4 numeros perfectos son: "));        
+                Console.WriteLine(Program.MostrarNumeros(lista, "Los primeros 4 numeros perfectos son: "));
+
+            Console.ReadKey();        
         }
 
         public static string MostrarNumeros(List<int> numeros, string msg)

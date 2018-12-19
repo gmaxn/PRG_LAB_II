@@ -15,6 +15,7 @@ namespace E7
             {
                 Console.WriteLine("la persona vivio {0} días", CalcularEdad(fecha));
             }
+            Console.ReadKey();
         }
 
         public static int CalcularEdad(DateTime fechaDeNacimiento)

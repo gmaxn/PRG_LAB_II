@@ -11,6 +11,7 @@ namespace E9
         static void Main(string[] args)
         {
             Program.ImprimirPiramide(9);
+            Console.ReadKey();
         }
 
         public static void ImprimirPiramide(int dimension)

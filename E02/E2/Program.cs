@@ -19,6 +19,7 @@ namespace E2
                 Console.WriteLine(Program.MostrarPotencia(num, 3));
             }
             Console.ReadKey();
+            //
         }
 
         public static bool ObtenerNumeroDelUsuario(string request, int intentos, string msgError, out int numero)

@@ -14,6 +14,8 @@ namespace E6
 
             while (Program.ObtenerNumeroDelUsuario("ingrese un año:", 3, "ha ingresado un valor incorrecto. intente nuevamente: ", out año))
                 Console.WriteLine(CalcularAñoBisiesto(año));
+
+                Console.ReadKey();
         }
 
         public static string CalcularAñoBisiesto(int año)

@@ -29,6 +29,7 @@ namespace E8
                     Console.WriteLine(emp.MostrarDatos());
                 }
             }
+            Console.ReadKey();
         }
 
         public static bool SeguirCargando()

@@ -11,12 +11,13 @@ namespace E3
         static void Main(string[] args)
         {
             #region Consigna
-            /*
+            /************************************************
                 Mostrar por pantalla todos los números primos 
                 hasta el número que haya ingresado el usuario
                 por consola.
                     Nota: Utilizar estructuras repetitivas, 
                     selectivas y la función módulo (%).
+
             */
             #endregion
             Console.Title = "Ejercicio 2";

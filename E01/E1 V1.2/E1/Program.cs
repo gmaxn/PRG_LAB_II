@@ -21,6 +21,7 @@ namespace E1
                 Console.WriteLine(Program.MostrarNumeros(numeros));
                 Console.WriteLine(Program.MostrarMaxMin(numeros));
             }
+            Console.ReadKey();
         }
         /////////////////////////////////////////////////////////////////////////////////
         public static int[] SolicitarNumeros(int ingresos, int intentos, string msgError)

@@ -11,6 +11,7 @@ namespace E10
         static void Main(string[] args)
         {
             Program.ImprimirPiramide(20);
+            Console.ReadKey();
         }
 
         public static void ImprimirPiramide(int dimension)
