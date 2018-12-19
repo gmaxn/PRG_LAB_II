@@ -25,6 +25,7 @@ namespace E16
             Console.WriteLine(A1.Mostrar());
             Console.WriteLine(A2.Mostrar());
             Console.WriteLine(A3.Mostrar());
+            Console.ReadKey();
         }
     }
 }
