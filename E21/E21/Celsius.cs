@@ -37,7 +37,7 @@ namespace EscalasTemperatura
         // Sobrecarga de Operadores
         public static bool operator ==(Celsius ca, Celsius cb)
         {
-            return (ca.GetCantidad == cb.GetCantidad);
+            return ((float)(double)ca == (float)(double)cb);
             //
         }
         public static bool operator !=(Celsius ca, Celsius cb)
@@ -48,69 +48,37 @@ namespace EscalasTemperatura
 
         public static Celsius operator +(Celsius c, Kelvin k)
         {
-            double eqCelsius = double.Parse(Celsius.GetEquivalencia.ToString());
-            double eqKelvin = double.Parse(Kelvin.GetEquivalencia.ToString());
-
-            double aux = (((c.GetCantidad * eqCelsius) + (k.GetCantidad * eqKelvin)) / eqKelvin);
-            return new Celsius(aux);
-
+            return new Celsius((double)c + (double)((Celsius)k));
         }
         public static Celsius operator -(Celsius c, Kelvin k)
         {
-            double cotizDolar = double.Parse(Dolar.GetCotizacion.ToString());
-            double cotizEuro = double.Parse(Euro.GetCotizacion.ToString());
-
-            double aux = (((d.GetCantidad * cotizDolar) - (e.GetCantidad * cotizEuro)) / cotizDolar);
-            return new Dolar(aux);
-            //double aux = d.GetCantidad * Dolar.GetCotizacion - e.GetCantidad * Euro.GetCotizacion;
-            //return new Dolar((float)(aux / Dolar.GetCotizacion));
-            //
+            return new Celsius((double)c - (double)((Celsius)k));
         }
         public static bool operator ==(Celsius c, Kelvin k)
         {
-            double cotizDolar = double.Parse(Dolar.GetCotizacion.ToString());
-            double cotizEuro = double.Parse(Euro.GetCotizacion.ToString());
-            return (float)(d.GetCantidad * cotizDolar) == (float)(e.GetCantidad * cotizEuro);
-            //
+            return ((double)(double)c == (double)(double)((Celsius)k));
         }
         public static bool operator !=(Celsius c, Kelvin k)
         {
-            return !(d == e);
+            return !(c == k);
             //
         }
 
         public static Celsius operator +(Celsius c, Fahrenheit f)
         {
-            double cotizDolar = double.Parse(Dolar.GetCotizacion.ToString());
-            double cotizPeso = double.Parse(Peso.GetCotizacion.ToString());
-
-            double aux = (((d.GetCantidad * cotizDolar) + (p.GetCantidad * cotizPeso)) / cotizDolar);
-            return new Dolar(aux);
-            //double aux = d.GetCantidad * Dolar.GetCotizacion + p.GetCantidad * Peso.GetCotizacion;
-            //return new Dolar((float)(aux / Dolar.GetCotizacion));
-            //
+            return new Celsius((double)c + (double)((Celsius)f));
         }
         public static Celsius operator -(Celsius c, Fahrenheit f)
         {
-            double cotizDolar = double.Parse(Dolar.GetCotizacion.ToString());
-            double cotizPeso = double.Parse(Peso.GetCotizacion.ToString());
-
-            double aux = (((d.GetCantidad * cotizDolar) - (p.GetCantidad * cotizPeso)) / cotizDolar);
-            return new Dolar(aux);
-            //double aux = d.GetCantidad * Dolar.GetCotizacion - p.GetCantidad * Peso.GetCotizacion;
-            //return new Dolar((float)(aux / Dolar.GetCotizacion));   
-            //
+            return new Celsius((double)c - (double)((Celsius)f));
         }
         public static bool operator ==(Celsius c, Fahrenheit f)
         {
-            double cotizDolar = double.Parse(Dolar.GetCotizacion.ToString());
-            double cotizPeso = double.Parse(Peso.GetCotizacion.ToString());
-            return (float)(d.GetCantidad * cotizDolar) == (float)(p.GetCantidad * cotizPeso);
-            //
+            return ((float)(double)c == (float)(double)((Celsius)f));
         }
         public static bool operator !=(Celsius c, Fahrenheit f)
         {
-            return !(d == p);
+            return !(c == f);
             //
         }
 
@@ -126,26 +94,20 @@ namespace EscalasTemperatura
         // Conversiones Explicitas / Implicitas
         public static implicit operator double(Celsius c)
         {
-            return d.cantidad;
+            return c.cantidad;
         }
         public static implicit operator Celsius(double d)
         {
-            return new Dolar(d);
+            return new Celsius(d);
             //
         }
         public static explicit operator Kelvin(Celsius c)
         {
-            double cotizDolar = double.Parse(Dolar.GetCotizacion.ToString());
-            double cotizEuro = double.Parse(Euro.GetCotizacion.ToString());
-            double aux = (d.cantidad * cotizDolar) / cotizEuro;
-            return new Euro(aux);
+            return new Kelvin((double)c + 273.15);
         }
         public static explicit operator Fahrenheit(Celsius c)
         {
-            double cotizDolar = double.Parse(Dolar.GetCotizacion.ToString());
-            double cotizPeso = double.Parse(Peso.GetCotizacion.ToString());
-            double aux = (d.cantidad * cotizDolar) / cotizPeso;
-            return new Peso(aux);
+            return new Fahrenheit(((double)c * 9/5) + 32);
         }
     }
 }
