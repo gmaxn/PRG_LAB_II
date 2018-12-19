@@ -17,8 +17,6 @@ namespace E21
             Celsius aux = c1 + f1;
 
             Console.WriteLine(c1 == f1);
-
-
         }
     }
 }

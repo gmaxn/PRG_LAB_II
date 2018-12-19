@@ -10,7 +10,7 @@ namespace EscalasTemperatura
     {
         // Atributos
         private double cantidad;
-        private static float equivalenciaRespectoKelvin;
+        private static float equivalenteEnKelvin;
 
         // Getters - Setters - Indexers
         public double GetCantidad
@@ -18,25 +18,20 @@ namespace EscalasTemperatura
             get { return this.cantidad; }
             //
         }
-        public static float GetEquivalenciaKelvin
+        public static float GetEquivalencia
         {
-            get { return Celsius.equivalenciaRespectoKelvin; }
+            get { return Celsius.equivalenteEnKelvin; }
             //
         }
 
         // Constructores
         private Celsius()
         {
-            Celsius.equivalenciaRespectoKelvin = (float)274.15;
+            Celsius.equivalenteEnKelvin = (float)(274.15);
         }
         public Celsius(double cantidad)
         {
             this.cantidad = cantidad;
-        }
-        public Celsius(double cantidad, float equivalenciaRespectoKelvin)
-        {
-            this.cantidad = cantidad;
-            Celsius.equivalenciaRespectoKelvin = equivalenciaRespectoKelvin;
         }
 
         // Sobrecarga de Operadores
@@ -51,48 +46,71 @@ namespace EscalasTemperatura
             //
         }
 
-        public static Celsius operator +(Celsius c, Fahrenheit f)
-        {
-            return new Celsius(c.cantidad + ((f.GetCantidad - 32) * 5 / 9));
-            //
-        }
-        public static Celsius operator -(Celsius c, Fahrenheit f)
-        {
-            return new Celsius(c.cantidad - ((f.GetCantidad - 32) * 5 / 9));
-            //
-        }
-        public static bool operator ==(Celsius c, Fahrenheit f)
-        {
-            return (c.GetCantidad  == ((f.GetCantidad - 32) * 5 / 9));
-            //
-        }
-        public static bool operator !=(Celsius c, Fahrenheit f)
-        {
-            return !(c == f);
-            //
-        }
-
-
         public static Celsius operator +(Celsius c, Kelvin k)
         {
-            double cant = c.cantidad + (k.GetCantidad * Kelvin.GetEquivalencia);
-            return new Celsius(cant);
-            //
+            double eqCelsius = double.Parse(Celsius.GetEquivalencia.ToString());
+            double eqKelvin = double.Parse(Kelvin.GetEquivalencia.ToString());
+
+            double aux = (((c.GetCantidad * eqCelsius) + (k.GetCantidad * eqKelvin)) / eqKelvin);
+            return new Celsius(aux);
+
         }
         public static Celsius operator -(Celsius c, Kelvin k)
         {
-            double aux = c.GetCantidad * Celsius.GetEquivalenciaKelvin - k.GetCantidad * Kelvin.GetEquivalencia;
-            return new Celsius((float)(aux / Celsius.GetEquivalenciaKelvin));
+            double cotizDolar = double.Parse(Dolar.GetCotizacion.ToString());
+            double cotizEuro = double.Parse(Euro.GetCotizacion.ToString());
+
+            double aux = (((d.GetCantidad * cotizDolar) - (e.GetCantidad * cotizEuro)) / cotizDolar);
+            return new Dolar(aux);
+            //double aux = d.GetCantidad * Dolar.GetCotizacion - e.GetCantidad * Euro.GetCotizacion;
+            //return new Dolar((float)(aux / Dolar.GetCotizacion));
             //
         }
         public static bool operator ==(Celsius c, Kelvin k)
         {
-            return (float)(c.GetCantidad * Celsius.GetEquivalenciaKelvin) == (float)(k.GetCantidad * Kelvin.GetEquivalencia);
+            double cotizDolar = double.Parse(Dolar.GetCotizacion.ToString());
+            double cotizEuro = double.Parse(Euro.GetCotizacion.ToString());
+            return (float)(d.GetCantidad * cotizDolar) == (float)(e.GetCantidad * cotizEuro);
             //
         }
         public static bool operator !=(Celsius c, Kelvin k)
         {
-            return !(c == k);
+            return !(d == e);
+            //
+        }
+
+        public static Celsius operator +(Celsius c, Fahrenheit f)
+        {
+            double cotizDolar = double.Parse(Dolar.GetCotizacion.ToString());
+            double cotizPeso = double.Parse(Peso.GetCotizacion.ToString());
+
+            double aux = (((d.GetCantidad * cotizDolar) + (p.GetCantidad * cotizPeso)) / cotizDolar);
+            return new Dolar(aux);
+            //double aux = d.GetCantidad * Dolar.GetCotizacion + p.GetCantidad * Peso.GetCotizacion;
+            //return new Dolar((float)(aux / Dolar.GetCotizacion));
+            //
+        }
+        public static Celsius operator -(Celsius c, Fahrenheit f)
+        {
+            double cotizDolar = double.Parse(Dolar.GetCotizacion.ToString());
+            double cotizPeso = double.Parse(Peso.GetCotizacion.ToString());
+
+            double aux = (((d.GetCantidad * cotizDolar) - (p.GetCantidad * cotizPeso)) / cotizDolar);
+            return new Dolar(aux);
+            //double aux = d.GetCantidad * Dolar.GetCotizacion - p.GetCantidad * Peso.GetCotizacion;
+            //return new Dolar((float)(aux / Dolar.GetCotizacion));   
+            //
+        }
+        public static bool operator ==(Celsius c, Fahrenheit f)
+        {
+            double cotizDolar = double.Parse(Dolar.GetCotizacion.ToString());
+            double cotizPeso = double.Parse(Peso.GetCotizacion.ToString());
+            return (float)(d.GetCantidad * cotizDolar) == (float)(p.GetCantidad * cotizPeso);
+            //
+        }
+        public static bool operator !=(Celsius c, Fahrenheit f)
+        {
+            return !(d == p);
             //
         }
 
@@ -108,22 +126,26 @@ namespace EscalasTemperatura
         // Conversiones Explicitas / Implicitas
         public static implicit operator double(Celsius c)
         {
-            return c.cantidad;
+            return d.cantidad;
         }
         public static implicit operator Celsius(double d)
         {
-            throw new NotImplementedException();
+            return new Dolar(d);
             //
         }
-        public static explicit operator Kelvin(Celsius d)
+        public static explicit operator Kelvin(Celsius c)
         {
-            throw new NotImplementedException();
-            //
+            double cotizDolar = double.Parse(Dolar.GetCotizacion.ToString());
+            double cotizEuro = double.Parse(Euro.GetCotizacion.ToString());
+            double aux = (d.cantidad * cotizDolar) / cotizEuro;
+            return new Euro(aux);
         }
-        public static explicit operator Fahrenheit(Celsius d)
+        public static explicit operator Fahrenheit(Celsius c)
         {
-            throw new NotImplementedException();
-            //
+            double cotizDolar = double.Parse(Dolar.GetCotizacion.ToString());
+            double cotizPeso = double.Parse(Peso.GetCotizacion.ToString());
+            double aux = (d.cantidad * cotizDolar) / cotizPeso;
+            return new Peso(aux);
         }
     }
 }

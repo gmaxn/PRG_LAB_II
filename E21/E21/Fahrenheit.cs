@@ -10,7 +10,7 @@ namespace EscalasTemperatura
     {
         // Atributos
         private double cantidad;
-        private static float equivalenciaRespectoKelvin;
+        private static float equivalenteEnKelvin;
 
         // Getters - Setters - Indexers
         public double GetCantidad
@@ -20,23 +20,23 @@ namespace EscalasTemperatura
         }
         public static float GetEquivalencia
         {
-            get { return Fahrenheit.equivalenciaRespectoKelvin; }
+            get { return Fahrenheit.equivalenteEnKelvin; }
             //
         }
 
         // Constructores
         private Fahrenheit()
         {
-            Fahrenheit.equivalenciaRespectoKelvin = (float)255.9278;
+            Fahrenheit.equivalenteEnKelvin = (float)255.9278;
         }
         public Fahrenheit(double cantidad)
         {
             this.cantidad = cantidad;
         }
-        public Fahrenheit(double cantidad, float equivalenciaRespectoKelvin)
+        public Fahrenheit(double cantidad, float equivalenteEnKelvin)
         {
             this.cantidad = cantidad;
-            Fahrenheit.equivalenciaRespectoKelvin = equivalenciaRespectoKelvin;
+            Fahrenheit.equivalenteEnKelvin = equivalenteEnKelvin;
         }
     }
 }
