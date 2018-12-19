@@ -64,8 +64,10 @@ namespace Billetes
         }
         public static bool operator ==(Peso p, Dolar d)
         {
+            double cotizPeso = double.Parse(Peso.GetCotizacion.ToString());
+            double cotizDolar = double.Parse(Dolar.GetCotizacion.ToString());
 
-            return (float)(p.GetCantidad * Peso.GetCotizacion) == (float)(d.GetCantidad * Dolar.GetCotizacion);
+            return (float)(p.GetCantidad * cotizPeso) == (float)(d.GetCantidad * cotizDolar);
             //
         }
         public static bool operator !=(Peso p, Dolar d)
@@ -99,7 +101,10 @@ namespace Billetes
         }
         public static bool operator ==(Peso p, Euro e)
         {
-            return ((p.cantidad) == (e.GetCantidad / Peso.GetCotizacion));
+            double cotizPeso = double.Parse(Peso.GetCotizacion.ToString());
+            double cotizEuro = double.Parse(Euro.GetCotizacion.ToString());
+
+            return (float)(p.GetCantidad * cotizPeso) == (float)(e.GetCantidad * cotizEuro);            
             //
         }
         public static bool operator !=(Peso p, Euro e)

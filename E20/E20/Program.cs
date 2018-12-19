@@ -15,12 +15,6 @@ namespace E20
             Euro e1 = new Euro(1, (float)1.14);
             Dolar d1 = new Dolar(1, 1);
 
-            Peso p2 = new Peso(40, (float)0.026);
-            Euro e2 = new Euro((double)1.14, (float)1.14);
-            Dolar d2 = new Dolar(1, 1);
-
-
-
             Console.WriteLine("OPERACIONES PESO");
             Console.WriteLine("ARS {0} + ARS {1}: ARS {2:N3}", (double)p1, (double)p1, (double)(p1 + p1));
             Console.WriteLine("ARS {0} + USD {1}: ARS {2:N3}", (double)p1, (double)d1, (double)(p1 + d1));
@@ -39,21 +33,21 @@ namespace E20
             Console.WriteLine("USD {0} + EUR {1}: USD {2:N3}", (double)d1, (double)e1, (double)(d1 + e1));
             Console.WriteLine("******************************************");
 
-            Console.WriteLine("OPERACIONES LOGICAS");
-            Console.WriteLine("USD {0} = USD {1}: {2}", (double)d1, (double)d1, (d1 == d1));
-            Console.WriteLine("USD {0} = ARS {1}: {2}", (double)d1, (double)p2, (d1 == p1));
-            Console.WriteLine("USD {0} = EUR {1}: {2}", (double)d1, (double)e2, (d1 == e2));
+            Console.WriteLine("OPERACIONES LOGICAS - CONVERSIONES (CASTING)");
+            Console.WriteLine("USD {0} = USD {1:N3}: {2}", (double)d1, (double)d1, (d1 == d1));
+            Console.WriteLine("USD {0} = ARS {1:N3}: {2}", (double)d1, (double)(Peso)d1, (d1 == (Peso)d1));
+            Console.WriteLine("USD {0} = EUR {1:N3}: {2}", (double)d1, (double)(Euro)d1, (d1 == (Euro)d1));
+            Console.WriteLine();
+            Console.WriteLine("EUR {0} = EUR {1:N3}: {2}", (double)e1, (double)e1, (e1 == e1));
+            Console.WriteLine("EUR {0} = ARS {1:N3}: {2}", (double)e1, (double)(Peso)e1, (e1 == (Peso)e1));
+            Console.WriteLine("EUR {0} = USD {1:N3}: {2}", (double)e1, (double)(Dolar)e1, (e1 == (Dolar)e1));
+            Console.WriteLine();
+            Console.WriteLine("ARS {0} = ARS {1:N3}: {2}", (double)p1, (double)p1, (p1 == p1));
+            Console.WriteLine("ARS {0} = USD {1:N3}: {2}", (double)p1, (double)(Dolar)p1, (p1 == (Dolar)p1));
+            Console.WriteLine("ARS {0} = EUR {1:N3}: {2}", (double)p1, (double)(Euro)p1, (p1 == (Euro)p1));
             Console.WriteLine("******************************************");
-
-            Console.WriteLine("CONVERSIONES (CASTING)");
-            Console.WriteLine("USD {0} + USD {1}: USD {2:N3}", (double)d1, (double)d1, (double)(d1 + d1));
-            Console.WriteLine("USD {0} + ARS {1}: USD {2:N3}", (double)d1, (double)p1, (double)(d1 + p1));
-            Console.WriteLine("USD {0} + EUR {1}: USD {2:N3}", (double)d1, (double)e1, (double)(d1 + e1));
-            Console.WriteLine("******************************************");
-
 
             Console.ReadKey();
-
         }
     }
 }
