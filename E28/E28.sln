@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E28", "E28\E28.csproj", "{169B00CA-A8C3-4985-85AC-0B7F88AD8ADF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contador_de_palabras", "Contador_de_palabras\Contador_de_palabras.csproj", "{15C09907-FA1C-41C3-A9CD-897CF4255B78}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{169B00CA-A8C3-4985-85AC-0B7F88AD8ADF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{169B00CA-A8C3-4985-85AC-0B7F88AD8ADF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{169B00CA-A8C3-4985-85AC-0B7F88AD8ADF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{169B00CA-A8C3-4985-85AC-0B7F88AD8ADF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15C09907-FA1C-41C3-A9CD-897CF4255B78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15C09907-FA1C-41C3-A9CD-897CF4255B78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15C09907-FA1C-41C3-A9CD-897CF4255B78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15C09907-FA1C-41C3-A9CD-897CF4255B78}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
