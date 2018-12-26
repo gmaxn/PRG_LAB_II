@@ -138,9 +138,20 @@ namespace E41
 
         public static Centralita operator +(Centralita c, Llamada nuevaLLamada)
         {
-            if (!(c == nuevaLLamada))
+
+            try
             {
-                c.AgregarLlamada(nuevaLLamada);
+                if (!(c == nuevaLLamada))
+                {
+                    c.AgregarLlamada(nuevaLLamada);
+                }
+                else
+                    throw new Exception();
+            }
+            catch(Exception e)
+            {            
+                CentralitaException ex = new CentralitaException("La llamada se encuetra en curso", e);
+                throw ex;
             }
             return c;
         }

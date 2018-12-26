@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using E40;
+using E41;
 using CentralTelefonicaFormulario;
 
 namespace CentralTelefonicaFormulario
@@ -159,7 +159,21 @@ namespace CentralTelefonicaFormulario
 
             if (txt_NroDestino.Text[0] == '#')
             {
-                this.centralita += new Provincial(txt_NroOrigen.Text, txt_NroDestino.Text, (float)(new Random().Next(1, 50)), (Provincial.Franja)cmbFranja.SelectedItem);
+                try
+                {
+                    this.centralita += new Provincial(txt_NroOrigen.Text, txt_NroDestino.Text, (float)(new Random().Next(1, 50)), (Provincial.Franja)cmbFranja.SelectedItem);
+                }
+                catch(Exception ex)
+                {
+                    StringBuilder sb = new StringBuilder();
+                    sb.AppendFormat("Message ------\n{0}\n\n", ex.Message);
+                    sb.AppendFormat("Inner -----\n{0}\n\n", ex.InnerException.Message);
+                    sb.AppendFormat("Source -------\n{0}\n\n", ex.Source);
+                    sb.AppendFormat("StackTrace ---\n{0}\n\n", ex.StackTrace);
+                    sb.AppendFormat("TargetSite ---\n{0}\n\n", ex.TargetSite);
+                    MessageBox.Show(sb.ToString());
+                }
+                
             }
             else
             {
