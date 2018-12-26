@@ -21,6 +21,7 @@ namespace E50
 
             Console.WriteLine(G1.Leer());
             Console.WriteLine(G1.Guardar(str));
+            Console.ReadKey();
         }
     }
 }
