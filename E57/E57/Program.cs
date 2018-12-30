@@ -101,8 +101,8 @@ namespace E57
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendFormat("Nombre: {0}", this.Nombre);
-            sb.AppendFormat("Apellido: {0}", this.Apellido);
+            sb.AppendFormat("Nombre: {0}\n", this.Nombre);
+            sb.AppendFormat("Apellido: {0}\n", this.Apellido);
            
             return sb.ToString();
         }
