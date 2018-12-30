@@ -32,9 +32,9 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.abrirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.guardarCtrlSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.guardarComoCtrlMayúsSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tssl_numberOfChars = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -50,6 +50,7 @@
             this.rtb_texto.Size = new System.Drawing.Size(411, 252);
             this.rtb_texto.TabIndex = 0;
             this.rtb_texto.Text = "";
+            this.rtb_texto.TextChanged += new System.EventHandler(this.rtb_texto_TextChanged);
             // 
             // menuStrip1
             // 
@@ -79,18 +80,6 @@
             this.abrirToolStripMenuItem.Text = "Abrir                    Ctrl+A";
             this.abrirToolStripMenuItem.Click += new System.EventHandler(this.abrirToolStripMenuItem_Click);
             // 
-            // statusStrip1
-            // 
-            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tssl_numberOfChars});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 258);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.statusStrip1.Size = new System.Drawing.Size(411, 22);
-            this.statusStrip1.TabIndex = 2;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
             // guardarCtrlSToolStripMenuItem
             // 
             this.guardarCtrlSToolStripMenuItem.Name = "guardarCtrlSToolStripMenuItem";
@@ -103,6 +92,18 @@
             this.guardarComoCtrlMayúsSToolStripMenuItem.Name = "guardarComoCtrlMayúsSToolStripMenuItem";
             this.guardarComoCtrlMayúsSToolStripMenuItem.Size = new System.Drawing.Size(289, 26);
             this.guardarComoCtrlMayúsSToolStripMenuItem.Text = "Guardar como...  Ctrl+Mayús+S";
+            this.guardarComoCtrlMayúsSToolStripMenuItem.Click += new System.EventHandler(this.guardarComoCtrlMayúsSToolStripMenuItem_Click);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tssl_numberOfChars});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 258);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(411, 22);
+            this.statusStrip1.TabIndex = 2;
+            this.statusStrip1.Text = "statusStrip1";
             // 
             // tssl_numberOfChars
             // 
