@@ -80,7 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\IO\IO.csproj">
-      <Project>{7f00a864-c409-4c75-8cc1-5bf7a5fe8876}</Project>
+      <Project>{44283c61-92ca-4c2e-85e4-bb1b3116d6b2}</Project>
       <Name>IO</Name>
     </ProjectReference>
   </ItemGroup>
